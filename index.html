@@ -135,6 +135,15 @@
 }
 @media(prefers-reduced-motion:reduce){.portfolio .project{transition:none!important}}
 
+
+
+/* VANGUARD_MOBILE_OVERFLOW_FIX_V1 */
+/* Evita que decoraciones y animaciones ensanchen la página en móviles. */
+html,body{max-width:100%;overflow-x:clip}
+@media(max-width:760px){
+  .reveal-ready .reveal[data-reveal="left"],
+  .reveal-ready .reveal[data-reveal="right"]{transform:translate3d(0,20px,0)}
+}
 </style>
 </head>
 <body>
