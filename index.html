@@ -57,10 +57,7 @@
 .cinematic-parallax__foot{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:760px;color:#e1e4df;font-size:12px;line-height:1.8}
 .cinematic-parallax__foot p{max-width:400px;margin:0}
 .cinematic-parallax__index{font-family:var(--serif);font-size:28px;color:#fff;white-space:nowrap}
-@supports (animation-timeline: view()) and (animation-range: entry 0% exit 100%){
- .cinematic-parallax__media img{animation:cinematic-parallax-shift linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
- @keyframes cinematic-parallax-shift{from{transform:translateY(-5%) scale(1.12)}to{transform:translateY(5%) scale(1.12)}}
-}
+/* Scroll real controlado por JavaScript: funciona también en navegadores móviles sin scroll-timeline. */
 @media(max-width:760px){
  .cinematic-parallax{min-height:520px;margin-top:0}
  .cinematic-parallax__media{inset:-5% 0}
@@ -114,4 +111,35 @@
 <section class="contact" id="contacto"><div class="wrap contact-grid"><div><div class="eyebrow">El próximo paso</div><h2>Tu proyecto merece<br>una buena presencia.</h2><p>Contame qué tenés en mente. Podemos conversar sobre la idea, las necesidades y el mejor punto de partida.</p><a class="button" href="https://wa.me/5491134363898?text=Hola%2C%20quiero%20consultar%20por%20un%20sitio%20web." target="_blank" rel="noopener noreferrer">Contactar por WhatsApp <span>↗</span></a></div><aside class="contact-aside"><strong>Contacto directo</strong>WhatsApp · Consulta inicial<br><br><strong>Vanguard Web Studio</strong>Diseño web independiente<br>Argentina</aside></div></section>
 </main>
 <footer><div class="wrap footer-row"><span class="footer-brand">Vanguard Web Studio</span><span>Diseñado con intención · 2026</span><a href="#inicio">Volver arriba ↑</a></div></footer>
+
+<script>
+/* VANGUARD_PARALLAX_SCROLL_FIX_V2 */
+(function () {
+  var section = document.querySelector('.cinematic-parallax');
+  var image = section && section.querySelector('.cinematic-parallax__media img');
+  if (!section || !image) return;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  var ticking = false;
+  function updateParallax() {
+    var rect = section.getBoundingClientRect();
+    var viewH = window.innerHeight || document.documentElement.clientHeight;
+    var progress = (viewH - rect.top) / (viewH + rect.height);
+    progress = Math.max(0, Math.min(1, progress));
+    var shift = (progress - 0.5) * -100;
+    image.style.transform = 'translate3d(0,' + shift.toFixed(2) + 'px,0) scale(1.12)';
+    ticking = false;
+  }
+  function requestUpdate() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(updateParallax);
+    }
+  }
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate, { passive: true });
+  updateParallax();
+})();
+</script>
+
 </body></html>
