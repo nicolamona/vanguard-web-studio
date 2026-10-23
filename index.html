@@ -102,6 +102,39 @@
 @media(prefers-reduced-motion:reduce){.reveal-ready .reveal,.project,.project-live-preview iframe,.button:after,.selector-option{transition:none!important}.reveal-ready .reveal{opacity:1!important;transform:none!important}}
 
 
+
+/* VANGUARD_PORTFOLIO_POLISH_V1 — acabado editorial sutil, sin alterar el parallax */
+.portfolio{scroll-margin-top:18px}
+.portfolio .section-head{align-items:start;margin-bottom:46px}
+.portfolio .section-head .section-no{padding-top:8px}
+.portfolio .section-lead{max-width:520px}
+.portfolio .project{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);min-height:390px;background:#f8f5ee;border:1px solid #d6d0c5;overflow:hidden;box-shadow:0 1px 0 rgba(32,35,31,.02);transition:box-shadow .35s ease,border-color .35s ease}
+.portfolio .project:hover{box-shadow:0 20px 48px rgba(32,35,31,.09);border-color:#c6b9a8}
+.portfolio .project-visual{min-height:390px;background:linear-gradient(145deg,#d9d0c1,#eee9df)}
+.portfolio .project-live-preview{inset:18px 18px 18px 18px;box-shadow:0 18px 48px rgba(32,35,31,.15);border-color:rgba(32,35,31,.14)}
+.portfolio .preview-label{left:18px;bottom:18px;background:#202923;color:#fffdf8;letter-spacing:.15em}
+.portfolio .project-info{padding:clamp(28px,4vw,52px);position:relative;align-items:flex-start}
+.portfolio .project-info:before{content:"";display:block;width:34px;height:2px;background:var(--accent);margin-bottom:23px}
+.portfolio .project-info h3{font-size:clamp(38px,4.3vw,54px);letter-spacing:-.055em;line-height:.98;margin:18px 0 16px}
+.portfolio .project-info p{font-size:13px;line-height:1.9;max-width:340px;margin-bottom:25px}
+.portfolio .project-info .button{margin-top:1px}
+.portfolio .project-meta{border-top:1px solid var(--line);padding-top:15px;width:100%;margin-top:26px;letter-spacing:.12em}
+.portfolio .project + .project{margin-top:22px!important}
+.portfolio .project + .project .project-visual{order:2}
+.portfolio .project + .project .project-info{order:1}
+@media(max-width:760px){
+ .portfolio .section-head{margin-bottom:28px}
+ .portfolio .project{grid-template-columns:minmax(0,1fr);min-height:0}
+ .portfolio .project-visual{min-height:310px;order:0!important}
+ .portfolio .project-info{order:1!important;padding:27px 24px 29px}
+ .portfolio .project-info:before{margin-bottom:17px}
+ .portfolio .project-info h3{font-size:40px;margin:15px 0 12px}
+ .portfolio .project-live-preview{inset:12px}
+ .portfolio .preview-label{left:13px;bottom:13px}
+ .portfolio .project-meta{margin-top:22px}
+}
+@media(prefers-reduced-motion:reduce){.portfolio .project{transition:none!important}}
+
 </style>
 </head>
 <body>
