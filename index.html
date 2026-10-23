@@ -101,6 +101,48 @@
 @media(max-width:760px){.selector-head{grid-template-columns:1fr;gap:16px}.project-selector{padding:60px 0}.selector-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.selector-option{min-height:140px;padding:16px 14px}.selector-option strong{font-size:20px}.selector-action{align-items:flex-start;flex-direction:column}.reveal-ready .reveal{transition-duration:.55s}}
 @media(prefers-reduced-motion:reduce){.reveal-ready .reveal,.project,.project-live-preview iframe,.button:after,.selector-option{transition:none!important}.reveal-ready .reveal{opacity:1!important;transform:none!important}}
 
+
+/* VANGUARD_PORTFOLIO_EDITORIAL_V1 — presentación visual de proyectos */
+.portfolio{position:relative;overflow:hidden}
+.portfolio .section-head{align-items:end;margin-bottom:54px}
+.portfolio .section-no{padding-top:10px}
+.portfolio .section-head h2{max-width:760px}
+.portfolio .section-lead{max-width:610px;font-size:14px}
+.portfolio .project{position:relative;grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr);min-height:430px;border:1px solid rgba(80,72,60,.18);background:var(--white);box-shadow:0 12px 34px rgba(42,38,30,.035);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s,border-color .45s}
+.portfolio .project:hover{transform:translateY(-5px);box-shadow:0 24px 60px rgba(42,38,30,.12);border-color:rgba(168,79,53,.35)}
+.portfolio .project-visual{min-height:430px;background:#d8d0c2}
+.portfolio .project-visual:before{content:"01 / PROYECTO";position:absolute;z-index:4;top:20px;left:24px;color:#5b5146;font-size:9px;letter-spacing:.16em;font-weight:600}
+.portfolio .project + .project .project-visual:before{content:"02 / PROYECTO"}
+.portfolio .project-live-preview{inset:44px 26px 30px;box-shadow:0 24px 65px rgba(35,31,24,.16);border-color:rgba(90,79,63,.2);transition:transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .55s}
+.portfolio .project:hover .project-live-preview{transform:translate(0,-3px);box-shadow:0 30px 76px rgba(35,31,24,.2)}
+.portfolio .project-live-preview iframe{pointer-events:none}
+.portfolio .preview-label{left:38px;bottom:42px;background:var(--dark);padding:10px 13px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.portfolio .project-info{padding:clamp(30px,4.2vw,58px);position:relative}
+.portfolio .project-info:before{content:"";width:34px;height:2px;background:var(--accent);position:absolute;top:0;left:clamp(30px,4.2vw,58px)}
+.portfolio .project-info h3{font-size:clamp(38px,4vw,54px);line-height:.98;margin:27px 0 18px;letter-spacing:-.055em}
+.portfolio .project-info p{font-size:14px;line-height:1.9;max-width:390px}
+.portfolio .project-info .button{margin-top:2px}
+.portfolio .project-meta{border-top:1px solid var(--line);padding-top:17px;width:100%;line-height:1.6;letter-spacing:.11em}
+.portfolio .project + .project{margin-top:26px!important;grid-template-columns:minmax(300px,.88fr) minmax(0,1.12fr)}
+.portfolio .project + .project .project-visual{order:2;background:#c9d0c9}
+.portfolio .project + .project .project-info{order:1}
+.portfolio .project + .project .project-visual:before{color:#35443b}
+.portfolio .project + .project .project-live-preview{box-shadow:0 24px 65px rgba(26,40,31,.17)}
+@media(max-width:760px){
+ .portfolio .section-head{margin-bottom:32px}
+ .portfolio .project,.portfolio .project + .project{grid-template-columns:1fr;min-height:0}
+ .portfolio .project-visual{min-height:300px}
+ .portfolio .project + .project .project-visual{order:0}
+ .portfolio .project + .project .project-info{order:0}
+ .portfolio .project-live-preview{inset:42px 15px 24px}
+ .portfolio .preview-label{left:24px;bottom:34px;font-size:8px}
+ .portfolio .project-info{padding:32px 25px 28px}
+ .portfolio .project-info:before{left:25px}
+ .portfolio .project-info h3{font-size:40px;margin-top:25px}
+ .portfolio .project-info p{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.portfolio .project,.portfolio .project-live-preview{transition:none!important}.portfolio .project:hover{transform:none}}
+
 </style>
 </head>
 <body>
