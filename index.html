@@ -43,6 +43,35 @@
 .preview-label{position:absolute;z-index:3;left:27px;bottom:26px;background:var(--dark);color:#fffdf8;padding:9px 12px;font-size:9px;letter-spacing:.13em;text-transform:uppercase}
 @media(max-width:760px){.project-visual{min-height:330px}.project-live-preview{inset:12px}.project-live-preview iframe{width:150%;height:150%;transform:scale(.6667)}.preview-label{left:20px;bottom:20px}}
 
+
+/* VANGUARD_CINEMATIC_PARALLAX_V1 */
+.cinematic-parallax{position:relative;isolation:isolate;min-height:clamp(430px,68vh,760px);overflow:hidden;background:#17201c;color:#fffdf8;display:grid;align-items:center;margin:12px 0 0}
+.cinematic-parallax__media{position:absolute;inset:-12% 0;z-index:-2;overflow:hidden}
+.cinematic-parallax__media img{width:100%;height:112%;object-fit:cover;object-position:center 48%;display:block;transform:scale(1.12);filter:saturate(.72)}
+.cinematic-parallax:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(13,20,16,.82) 0%,rgba(13,20,16,.45) 56%,rgba(13,20,16,.12) 100%),linear-gradient(0deg,rgba(13,20,16,.3),transparent 55%)}
+.cinematic-parallax__content{width:min(1160px,calc(100% - 48px));margin:auto;padding:88px 0;position:relative}
+.cinematic-parallax__kicker{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#e2b29f}
+.cinematic-parallax__kicker:before{content:"";width:27px;height:1px;background:#e2b29f}
+.cinematic-parallax h2{font-family:var(--serif);font-size:clamp(46px,8vw,104px);font-weight:400;line-height:.94;letter-spacing:-.065em;max-width:850px;margin:28px 0}
+.cinematic-parallax h2 em{font-weight:400;color:#e2b29f}
+.cinematic-parallax__foot{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:760px;color:#e1e4df;font-size:12px;line-height:1.8}
+.cinematic-parallax__foot p{max-width:400px;margin:0}
+.cinematic-parallax__index{font-family:var(--serif);font-size:28px;color:#fff;white-space:nowrap}
+@supports (animation-timeline: view()) and (animation-range: entry 0% exit 100%){
+ .cinematic-parallax__media img{animation:cinematic-parallax-shift linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+ @keyframes cinematic-parallax-shift{from{transform:translateY(-5%) scale(1.12)}to{transform:translateY(5%) scale(1.12)}}
+}
+@media(max-width:760px){
+ .cinematic-parallax{min-height:520px;margin-top:0}
+ .cinematic-parallax__media{inset:-5% 0}
+ .cinematic-parallax__media img{object-position:58% center;transform:scale(1.08)}
+ .cinematic-parallax:before{background:linear-gradient(90deg,rgba(13,20,16,.76),rgba(13,20,16,.25)),linear-gradient(0deg,rgba(13,20,16,.4),transparent)}
+ .cinematic-parallax__content{width:calc(100% - 34px);padding:70px 0}
+ .cinematic-parallax h2{font-size:clamp(48px,13vw,76px);margin:24px 0}
+ .cinematic-parallax__foot{align-items:flex-start;flex-direction:column;gap:16px}
+}
+@media(prefers-reduced-motion:reduce){.cinematic-parallax__media img{animation:none!important;transform:none!important}}
+
 </style>
 </head>
 <body>
@@ -66,6 +95,16 @@
 </div>
 </section>
 <div class="wrap visual-note"><span>Concepto · Diseño · Desarrollo</span><span>Una buena web también se siente.</span></div>
+
+
+<section class="cinematic-parallax" aria-label="Vanguard Web Studio: diseño digital con impacto">
+  <div class="cinematic-parallax__media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=90" alt="" loading="lazy"></div>
+  <div class="cinematic-parallax__content">
+    <div class="cinematic-parallax__kicker">Vanguard Web Studio · Visión digital</div>
+    <h2>Una idea.<br>Un mundo.<br><em>Tu presencia.</em></h2>
+    <div class="cinematic-parallax__foot"><p>Diseñamos experiencias digitales que no solo se ven: transmiten una identidad, cuentan una historia y dejan huella.</p><span class="cinematic-parallax__index">Scroll para explorar ↓</span></div>
+  </div>
+</section>
 
 <div class="ticker"><div class="wrap"><span>Diseño web</span><span>Experiencia de usuario</span><span>Desarrollo adaptable</span><span>Identidad digital</span></div></div>
 <section class="wrap section" id="servicios"><div class="section-head"><div class="section-no">01 / Servicios</div><div><h2>Digital, con intención.</h2><p class="section-lead">Cada sitio tiene una función. Diseñamos la experiencia alrededor de lo que necesitás comunicar y de lo que tus visitantes necesitan encontrar.</p></div></div><div class="services"><article class="service"><div class="service-num">01</div><h3>Web institucional</h3><p>Una presentación clara de tu negocio, tus servicios y el valor que ofrecés.</p><div class="arrow">↗</div></article><article class="service"><div class="service-num">02</div><h3>Catálogos digitales</h3><p>Productos organizados y fáciles de explorar desde el teléfono o la computadora.</p><div class="arrow">↗</div></article><article class="service"><div class="service-num">03</div><h3>Diseño adaptable</h3><p>Jerarquía visual, navegación intuitiva y una experiencia cuidada en cada pantalla.</p><div class="arrow">↗</div></article></div></section>
