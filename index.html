@@ -144,10 +144,40 @@ html,body{max-width:100%;overflow-x:clip}
   .reveal-ready .reveal[data-reveal="left"],
   .reveal-ready .reveal[data-reveal="right"]{transform:translate3d(0,20px,0)}
 }
+
+/* VANGUARD_DARK_MODE_RIDER_MATCH_V1 */
+.theme-toggle{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.theme-toggle:hover{background:var(--dark);color:var(--white);border-color:var(--dark)}
+.theme-icon{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+header{gap:18px}
+@media(max-width:760px){header{gap:10px}.theme-toggle{width:36px;height:36px;flex-basis:36px}.nav{gap:14px}}
+html[data-theme="dark"]{color-scheme:dark;--paper:#101512;--ink:#eef1e9;--muted:#adb7ad;--line:#303b33;--accent:#d77b5d;--dark:#202923;--white:#171e19}
+html[data-theme="dark"] body{background:var(--paper);color:var(--ink)}
+html[data-theme="dark"] .topline,html[data-theme="dark"] .section-head,html[data-theme="dark"] .services,html[data-theme="dark"] .steps,html[data-theme="dark"] footer{border-color:var(--line)}
+html[data-theme="dark"] .mark{border-color:var(--line)}
+html[data-theme="dark"] .head-cta{border-color:var(--line)}
+html[data-theme="dark"] .visual-showcase,html[data-theme="dark"] .visual-note{background:#151c17;border-color:var(--line);color:var(--ink)}
+html[data-theme="dark"] .visual-showcase *{border-color:#344037}
+html[data-theme="dark"] .visual-showcase .screen,html[data-theme="dark"] .visual-showcase .mock-screen{background:#1c251f}
+html[data-theme="dark"] .ticker,html[data-theme="dark"] .button{background:#29352d;color:#f3f2e9}
+html[data-theme="dark"] .project{background:#171e19;border-color:var(--line)}
+html[data-theme="dark"] .project-visual{background:#202923}
+html[data-theme="dark"] .browser{background:#171e19;border-color:#39453c}
+html[data-theme="dark"] .browserbar,html[data-theme="dark"] .mini-tile{background:#263129;border-color:#39453c}
+html[data-theme="dark"] .tag{border-color:#684a3f;color:#e49a7f}
+html[data-theme="dark"] .step+.step,html[data-theme="dark"] .service{border-color:var(--line)}
+html[data-theme="dark"] .project-selector,html[data-theme="dark"] .selector-option,html[data-theme="dark"] .selector-action,html[data-theme="dark"] .contact-grid>*,html[data-theme="dark"] .contact-card{background:#171e19;border-color:var(--line);color:var(--ink)}
+html[data-theme="dark"] .selector-option[aria-pressed="true"]{background:#29352d;border-color:#d77b5d}
+html[data-theme="dark"] input,html[data-theme="dark"] textarea,html[data-theme="dark"] select{background:#171e19;color:var(--ink);border-color:var(--line)}
+html[data-theme="dark"] .theme-toggle{border-color:#435047;color:#f4c66a}
+html[data-theme="dark"] .theme-toggle:hover{background:#29352d;border-color:#d77b5d}
+html[data-theme="dark"] ::selection{background:#6e4437;color:#fff}
+@media(prefers-reduced-motion:reduce){.theme-toggle{transition:none}}
+
 </style>
 </head>
 <body>
-<div class="topline"><div class="wrap"><header><a class="brand" href="#inicio" aria-label="Vanguard Web Studio, inicio"><span class="mark">V.</span><span>Vanguard<br>Web Studio</span></a><nav class="nav" aria-label="Navegación principal"><a href="#servicios">Servicios</a><a href="#proyecto">Proyecto</a><a href="#proceso">Proceso</a><a href="#orientar-proyecto">Tu proyecto</a></nav><a class="head-cta" href="#contacto">Hablemos ↗</a></header></div></div>
+<div class="topline"><div class="wrap"><header><a class="brand" href="#inicio" aria-label="Vanguard Web Studio, inicio"><span class="mark">V.</span><span>Vanguard<br>Web Studio</span></a><nav class="nav" aria-label="Navegación principal"><a href="#servicios">Servicios</a><a href="#proyecto">Proyecto</a><a href="#proceso">Proceso</a><a href="#orientar-proyecto">Tu proyecto</a></nav><a class="head-cta" href="#contacto">Hablemos ↗</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activar modo oscuro" title="Cambiar tema"><svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg></button></header></div></div>
 <main>
 <section class="wrap hero" id="inicio"><div><div class="eyebrow">Estudio independiente · Diseño digital</div><h1>Ideas claras.<br>Presencia <em>propia.</em></h1><p class="intro">Diseño y desarrollo de sitios web para marcas y proyectos que quieren presentarse con claridad, personalidad y criterio.</p><p style="display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:28px"><a class="button" href="#contacto">Hablemos de tu proyecto <span>↗</span></a><a class="textlink" href="#proyecto">Ver proyecto seleccionado</a></p></div><aside class="hero-side"><div class="index">01—03</div><p>Una presencia digital bien pensada no necesita hacer ruido para destacar.</p><a class="textlink" href="#servicios">Qué podemos crear ↘</a></aside></section>
 <section class="wrap visual-showcase" aria-label="Inspiración visual">
@@ -269,6 +299,33 @@ html,body{max-width:100%;overflow-x:clip}
   }
   options.forEach(function(option){
     option.addEventListener('click',function(){selectProject(option);});
+  });
+})();
+
+
+/* VANGUARD_THEME_PERSISTENCE_V1 */
+(function(){
+  var root=document.documentElement;
+  var button=document.getElementById('theme-toggle');
+  if(!button)return;
+  var saved=null;
+  try{saved=localStorage.getItem('vanguard-theme');}catch(e){}
+  function applyTheme(theme){
+    var dark=theme==='dark';
+    root.setAttribute('data-theme',dark?'dark':'light');
+    button.setAttribute('aria-label',dark?'Activar modo claro':'Activar modo oscuro');
+    button.setAttribute('title',dark?'Cambiar a modo claro':'Cambiar a modo oscuro');
+    button.innerHTML=dark
+      ? '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13A8.5 8.5 0 0 1 11 3.1 8.5 8.5 0 1 0 20.9 13Z"></path></svg>'
+      : '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>';
+    var meta=document.querySelector('meta[name="theme-color"]');
+    if(meta)meta.setAttribute('content',dark?'#101512':'#f4f1eb');
+  }
+  applyTheme(saved==='dark'?'dark':'light');
+  button.addEventListener('click',function(){
+    var next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    applyTheme(next);
+    try{localStorage.setItem('vanguard-theme',next);}catch(e){}
   });
 })();
 
