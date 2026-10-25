@@ -337,7 +337,7 @@ html[data-theme="dark"] .head-cta:hover{background:var(--accent);border-color:va
     button.setAttribute('title',dark?'Cambiar a modo claro':'Cambiar a modo oscuro');
     button.innerHTML=dark
       ? '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13A8.5 8.5 0 0 1 11 3.1 8.5 8.5 0 1 0 20.9 13Z"></path></svg>'
-      : '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>';
+      : '<svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1.8v2.4M12 19.8v2.4M1.8 12h2.4M19.8 12h2.4M4.8 4.8l1.7 1.7m11 11 1.7 1.7m0-14.4-1.7 1.7m-11 11-1.7 1.7"></path></svg>';
     var meta=document.querySelector('meta[name="theme-color"]');
     if(meta)meta.setAttribute('content',dark?'#101512':'#f4f1eb');
   }
